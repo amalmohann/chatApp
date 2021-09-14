@@ -1,0 +1,26 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "A chat application using node and view templating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amalmohann/chatApp.git"
+  },
+  "keywords": [
+    "chatApp",
+    "nodejs"
+  ],
+  "author": "amalmohann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amalmohann/chatApp/issues"
+  },
+  "homepage": "https://github.com/amalmohann/chatApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
