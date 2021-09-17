@@ -23,23 +23,43 @@
         <div class="jumbotron">
             <h1 class="display-4">Send Message</h1><br>
             <input type="text" name="name" placeholder="Name" id="name" class="form-control"><br>
-            <input type="text" name="message" placeholder="Message" id="name" class="form-control"><br>
+            <input type="text" name="message" placeholder="Message" id="message" class="form-control"><br>
             <button id="send" class="btn btn-success">Send</button>
         </div>
-        <div id="message">
-
+        <div id="messages">
         </div>
     </div>
     <script>
         $(() => {
+            getMessages();
             // console.log("Page loaded!");
-            $('#send').click(()=>{
-                addMessages({name:'John', message:"It's working"})
+            var messages = [];
+            $('#send').click(() => {
+                var message = {
+                    name: $('#name').val(),
+                    message: $('#message').val()
+                }
+                PostMessages(message);
+                $("#messages").empty()
+                getMessages();
             })
         })
 
         function addMessages(message) {
-            $("#message").append(`<h4> ${message.name}</h4><p>${message.message}</p>`)
+            console.log(message);
+            $("#messages").append(`<h4 class="mb-0"> ${message.name}</h4><p class="mt-0">${message.message}</p></br>`)
+        }
+
+        function getMessages() {
+            console.log("getmessage");
+            $.get('http://localhost:3000/messages', (data) => {
+                // console.log(data);
+                data.forEach(addMessages)
+            })
+        }
+
+        function PostMessages(message) {
+            $.post('http://localhost:3000/messages', message)
         }
     </script>
 </body>
