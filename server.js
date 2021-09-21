@@ -8,7 +8,7 @@ app.use(express.static(__dirname))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-var dbUrl = "mongodb://localhost/ChatApp";
+var dbUrl = "mongodb+srv://amalmohann:amalmohann@rentalapp.beoai.mongodb.net/ChatApp?retryWrites=true&w=majority";
 mongoose.connect(dbUrl, { useNewUrlParser: true});
 mongoose.connection
     .once('open',()=>{console.log('MonGod is now Available for your prayers!');})
