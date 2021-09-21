@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
+var port = process.env.PORT || 5000;
 
 app.use(express.static(__dirname))
 app.use(express.json());
@@ -47,7 +48,7 @@ io.on('connection', (socket) => {
 
 
 
-var server = http.listen(3000, () => {
-    console.log("Node server is up! Listening to ", server.address().port);
+var server = http.listen(port, () => {
+    console.log("Node server is up! Listening to %d", port);
 });
 
