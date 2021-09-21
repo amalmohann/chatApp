@@ -55,14 +55,14 @@
 
         function getMessages() {
             console.log("getmessage");
-            $.get('https://amezchatapp.herokuapp.com//messages', (data) => {
+            $.get('https://amezchatapp.herokuapp.com/messages', (data) => {
                 // console.log(data);
                 data.forEach(addMessages)
             })
         }
 
         function PostMessages(message) {
-            $.post('https://amezchatapp.herokuapp.com//messages', message)
+            $.post('https://amezchatapp.herokuapp.com/messages', message)
         }
     </script>
 </body>
